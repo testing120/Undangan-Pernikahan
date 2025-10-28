@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Undangan Pernikahan - Budi & Ani</title>
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sacramento&family=Work+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome 6 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- AOS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Lightbox 2 -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --pink: #f14e95;
+        --bg: #0a0a0a;
+        --shadow: 0 2px 2px rgb(0 0 0 / 0.5);
+      }
+
+      body {
+        font-size: 1.2rem;
+        font-family: "Work Sans", sans-serif;
+        min-height: 4000px;
+        background-color: #f8f9fa;
+      }
+
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1200")
+            center/cover no-repeat;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero h1 {
+        font-family: "Sacramento", cursive;
+        font-size: 6rem;
+        color: white;
+        text-shadow: var(--shadow);
+      }
+
+      .hero h4,
+      .hero p {
+        color: white;
+        text-shadow: var(--shadow);
+      }
+
+      .simply-countdown {
+        margin-top: 50px;
+      }
+
+      .simply-countdown > div {
+        display: inline-block;
+        padding: 20px;
+        margin: 10px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        box-shadow: var(--shadow);
+      }
+
+      .simply-countdown > div > span {
+        display: block;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--pink);
+      }
+
+      .section-title {
+        font-family: "Sacramento", cursive;
+        font-size: 4rem;
+        color: var(--pink);
+        margin-bottom: 2rem;
+      }
+
+      .home-section {
+        padding: 5rem 0;
+      }
+
+      .couple-img {
+        width: 100%;
+        max-width: 300px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 10px solid #fff;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .btn-pink {
+        background-color: var(--pink);
+        color: white;
+        border: none;
+        padding: 10px 30px;
+        border-radius: 25px;
+        transition: all 0.3s;
+      }
+
+      .btn-pink:hover {
+        background-color: #d63384;
+        color: white;
+        transform: scale(1.05);
+      }
+
+      .timeline {
+        position: relative;
+        padding: 50px 0;
+      }
+
+      .timeline-item {
+        position: relative;
+        padding-left: 60px;
+        margin-bottom: 50px;
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: 20px;
+        top: 0;
+        bottom: -50px;
+        width: 2px;
+        background: var(--pink);
+      }
+
+      .timeline-item:last-child::before {
+        display: none;
+      }
+
+      .timeline-icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        background: var(--pink);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+
+      .gallery-img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        transition: transform 0.3s;
+        cursor: pointer;
+      }
+
+      .gallery-img:hover {
+        transform: scale(1.05);
+      }
+
+      .gift-box {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+
+      .gift-account {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 15px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .gift-account:hover {
+        background: #e9ecef;
+      }
+
+      .music-toggle {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background: var(--pink);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1000;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s;
+      }
+
+      .music-toggle:hover {
+        transform: scale(1.1);
+      }
+
+      .music-toggle i {
+        color: white;
+        font-size: 24px;
+      }
+
+      .opening-cover {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("https://images.unsplash.com/photo-1519741497674-611481863552?w=1200")
+            center/cover no-repeat;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 1s;
+      }
+
+      .opening-cover.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 4rem;
+        }
+        .section-title {
+          font-size: 3rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Opening Cover -->
+    <div class="opening-cover" id="openingCover">
+      <div class="text-center text-white">
+        <h1 style="font-family: 'Sacramento', cursive; font-size: 5rem">
+          Ghani & Bila
+        </h1>
+        <p class="fs-4 mb-4">Kepada Bapak/Ibu/Saudara/i</p>
+        <button class="btn btn-pink btn-lg" onclick="openInvitation()">
+          <i class="fas fa-envelope-open me-2"></i> Buka Undangan
+        </button>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section
+      class="hero d-flex align-items-center justify-content-center"
+      id="home"
+    >
+      <div class="hero-content text-center">
+        <h4 class="mb-3" data-aos="fade-down" data-aos-duration="1000">
+          Kepada Bapak/Ibu/Saudara/i, Kami mengundang Anda
+        </h4>
+        <h1 data-aos="zoom-in" data-aos-duration="1000">Budi & Ani</h1>
+        <p class="fs-5 mt-3" data-aos="fade-up" data-aos-duration="1000">
+          Akan melangsungkan pernikahan dalam:
+        </p>
+
+        <div
+          class="simply-countdown"
+          data-aos="zoom-in"
+          data-aos-delay="300"
+        ></div>
+      </div>
+    </section>
+
+    <!-- Sambutan -->
+    <section class="home-section" id="sambutan">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 text-center" data-aos="fade-up">
+            <h2 class="section-title">Assalamu'alaikum Wr. Wb.</h2>
+            <p class="lead">
+              Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud
+              mengundang Bapak/Ibu/Saudara/i untuk hadir pada acara pernikahan
+              putra-putri kami:
+            </p>
+          </div>
+        </div>
+
+        <div class="row justify-content-center mt-5">
+          <div class="col-md-5 text-center mb-4" data-aos="fade-right">
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400"
+              alt="Budi"
+              class="couple-img mb-3"
+            />
+            <h3>Budi Santoso, S.Kom</h3>
+            <p>Putra dari Bapak Ahmad Santoso<br />& Ibu Siti Nurjanah</p>
+            <a href="#" class="text-pink"
+              ><i class="fab fa-instagram fa-2x"></i
+            ></a>
+          </div>
+          <div
+            class="col-md-2 d-flex align-items-center justify-content-center"
+            data-aos="zoom-in"
+          >
+            <h1 class="section-title">&</h1>
+          </div>
+          <div class="col-md-5 text-center mb-4" data-aos="fade-left">
+            <img
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400"
+              alt="Ani"
+              class="couple-img mb-3"
+            />
+            <h3>Ani Wijaya, S.E</h3>
+            <p>Putri dari Bapak Bambang Wijaya<br />& Ibu Endang Susilowati</p>
+            <a href="#" class="text-pink"
+              ><i class="fab fa-instagram fa-2x"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tanggal & Lokasi Acara -->
+    <section class="home-section bg-light" id="acara">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 text-center" data-aos="fade-up">
+            <h2 class="section-title">Waktu & Tempat</h2>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-md-6 mb-4" data-aos="fade-right">
+            <div class="card border-0 shadow-lg h-100">
+              <div class="card-body text-center p-5">
+                <i class="fas fa-calendar-check fa-3x text-pink mb-3"></i>
+                <h3>Akad Nikah</h3>
+                <hr />
+                <p class="mb-2">
+                  <i class="far fa-calendar me-2"></i
+                  ><strong>Sabtu, 15 Februari 2025</strong>
+                </p>
+                <p class="mb-2">
+                  <i class="far fa-clock me-2"></i
+                  ><strong>08:00 - 10:00 WIB</strong>
+                </p>
+                <p class="mb-3">
+                  <i class="fas fa-map-marker-alt me-2"></i>Masjid Al-Ikhlas<br />Jl.
+                  Merdeka No. 123, Jakarta Selatan
+                </p>
+                <a
+                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Akad+Nikah+Budi+%26+Ani&dates=20250215T010000Z/20250215T030000Z&details=Akad+Nikah+Budi+dan+Ani&location=Masjid+Al-Ikhlas"
+                  target="_blank"
+                  class="btn btn-pink me-2"
+                >
+                  <i class="far fa-calendar-plus me-1"></i> Simpan Tanggal
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4" data-aos="fade-left">
+            <div class="card border-0 shadow-lg h-100">
+              <div class="card-body text-center p-5">
+                <i class="fas fa-glass-cheers fa-3x text-pink mb-3"></i>
+                <h3>Resepsi</h3>
+                <hr />
+                <p class="mb-2">
+                  <i class="far fa-calendar me-2"></i
+                  ><strong>Sabtu, 15 Februari 2025</strong>
+                </p>
+                <p class="mb-2">
+                  <i class="far fa-clock me-2"></i
+                  ><strong>11:00 - 14:00 WIB</strong>
+                </p>
+                <p class="mb-3">
+                  <i class="fas fa-map-marker-alt me-2"></i>Gedung Graha
+                  Pernikahan<br />Jl. Sudirman No. 456, Jakarta Selatan
+                </p>
+                <a
+                  href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Resepsi+Pernikahan+Budi+%26+Ani&dates=20250215T040000Z/20250215T070000Z&details=Resepsi+Pernikahan+Budi+dan+Ani&location=Gedung+Graha+Pernikahan"
+                  target="_blank"
+                  class="btn btn-pink me-2"
+                >
+                  <i class="far fa-calendar-plus me-1"></i> Simpan Tanggal
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-md-12" data-aos="zoom-in">
+            <div class="card border-0 shadow-lg">
+              <div class="card-body p-0">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3265335783843!2d106.82493831476889!3d-6.215383995497641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf2812e3c0!2sMonumen%20Nasional!5e0!3m2!1sen!2sid!4v1234567890"
+                  width="100%"
+                  height="450"
+                  style="border: 0; border-radius: 10px"
+                  allowfullscreen=""
+                  loading="lazy"
+                ></iframe>
+              </div>
+              <div class="card-footer text-center bg-white">
+                <a
+                  href="https://goo.gl/maps/abc123"
+                  target="_blank"
+                  class="btn btn-pink"
+                >
+                  <i class="fas fa-map-marked-alt me-1"></i> Buka Google Maps
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Love Story -->
+    <section class="home-section" id="story">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 text-center" data-aos="fade-up">
+            <h2 class="section-title">Kisah Cinta Kami</h2>
+            <p class="lead">
+              Perjalanan indah yang membawa kami ke momen bahagia ini
+            </p>
+          </div>
+        </div>
+
+        <div class="row justify-content-center mt-5">
+          <div class="col-md-8">
+            <div class="timeline">
+              <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-icon">
+                  <i class="fas fa-heart"></i>
+                </div>
+                <div class="card border-0 shadow">
+                  <div class="card-body">
+                    <h4>Pertama Bertemu</h4>
+                    <p class="text-muted mb-2">
+                      <i class="far fa-calendar me-2"></i>Januari 2020
+                    </p>
+                    <p>
+                      Kami bertemu pertama kali di acara seminar teknologi. Budi
+                      adalah pembicara, dan Ani adalah salah satu peserta yang
+                      aktif bertanya. Dari sinilah percakapan kami dimulai.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-icon">
+                  <i class="fas fa-coffee"></i>
+                </div>
+                <div class="card border-0 shadow">
+                  <div class="card-body">
+                    <h4>Mulai Dekat</h4>
+                    <p class="text-muted mb-2">
+                      <i class="far fa-calendar me-2"></i>Juni 2020
+                    </p>
+                    <p>
+                      Setelah beberapa bulan bertukar pesan, kami mulai sering
+                      bertemu di kafe favorit. Membicarakan mimpi, passion, dan
+                      masa depan. Di sinilah kami menyadari ada chemistry yang
+                      spesial.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item" data-aos="fade-right">
+                <div class="timeline-icon">
+                  <i class="fas fa-ring"></i>
+                </div>
+                <div class="card border-0 shadow">
+                  <div class="card-body">
+                    <h4>Lamaran</h4>
+                    <p class="text-muted mb-2">
+                      <i class="far fa-calendar me-2"></i>Desember 2023
+                    </p>
+                    <p>
+                      Budi melamar Ani di tempat kami pertama kali bertemu.
+                      Dengan cincin dan bunga mawar merah, dia mengucapkan
+                      kata-kata yang telah lama dipersiapkan. Ani dengan bahagia
+                      menjawab "Ya!"
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="timeline-item" data-aos="fade-left">
+                <div class="timeline-icon">
+                  <i class="fas fa-church"></i>
+                </div>
+                <div class="card border-0 shadow">
+                  <div class="card-body">
+                    <h4>Pernikahan</h4>
+                    <p class="text-muted mb-2">
+                      <i class="far fa-calendar me-2"></i>Februari 2025
+                    </p>
+                    <p>
+                      Dan sekarang, kami siap untuk memulai babak baru dalam
+                      hidup kami. Bersama, hingga maut memisahkan kami. Kami
+                      berharap Anda bisa menjadi saksi dalam hari istimewa kami.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="home-section bg-light" id="gallery">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 text-center" data-aos="fade-up">
+            <h2 class="section-title">Galeri Foto</h2>
+            <p class="lead">Momen-momen indah yang kami bagikan</p>
+          </div>
+        </div>
+
+        <div class="row mt-5" data-masonry='{"percentPosition": true }'>
+          <div class="col-md-4 col-sm-6" data-aos="zoom-in">
+            <a
+              href="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800"
+              data-lightbox="gallery"
+              data-title="Foto 1"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=400"
+                class="gallery-img"
+                alt="Gallery 1"
+              />
+            </a>
+          </div>
+          <div
+            class="col-md-4 col-sm-6"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <a
+              href="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=800"
+              data-lightbox="gallery"
+              data-title="Foto 2"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?w=400"
+                class="gallery-img"
+                alt="Gallery 2"
+              />
+            </a>
+          </div>
+          <div
+            class="col-md-4 col-sm-6"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <a
+              href="https://images.unsplash.com/photo-1522673607199-3a7ce6f05308?w=800"
+              data-lightbox="gallery"
+              data-title="Foto 3"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=400"
+                class="gallery-img"
+                alt="Gallery 3"
+              />
+            </a>
+          </div>
+          <div class="col-md-4 col-sm-6" data-aos="zoom-in">
+            <a
+              href="https://images.unsplash.com/photo-1623529310215-7f99e63f5130?w=800"
+              data-lightbox="gallery"
+              data-title="Foto 4"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=400"
+                class="gallery-img"
+                alt="Gallery 4"
+              />
+            </a>
+          </div>
+          <div
+            class="col-md-4 col-sm-6"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <a
+              href="https://images.unsplash.com/photo-1519741497674-611481863552?w=800"
+              data-lightbox="gallery"
+              data-title="Foto 5"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400"
+                class="gallery-img"
+                alt="Gallery 5"
+              />
+            </a>
+          </div>
+          <div
+            class="col-md-4 col-sm-6"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <a
+              href="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800"
+              data-lightbox="gallery"
+              data-title="Foto 6"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400"
+                class="gallery-img"
+                alt="Gallery 6"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wedding Gift -->
+    <section class="home-section" id="gift">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 text-center" data-aos="fade-up">
+            <h2 class="section-title">Amplop Digital</h2>
+            <p class="lead">
+              Tanpa mengurangi rasa hormat, bagi Anda yang ingin memberikan
+              tanda kasih untuk kami, dapat melalui:
+            </p>
+          </div>
+        </div>
+
+        <div class="row justify-content-center mt-5">
+          <div class="col-md-6 mb-4" data-aos="fade-right">
+            <div class="gift-box">
+              <h4 class="text-center mb-3">
+                <i class="fas fa-university me-2"></i>Bank BCA
+              </h4>
+              <div
+                class="gift-account"
+                onclick="copyAccount('1234567890', this)"
+              >
+                <p class="mb-2"><strong>Atas Nama:</strong> Budi Santoso</p>
+                <p class="mb-0">
+                  <strong>No. Rekening:</strong>
+                  <span id="bca-account">1234567890</span>
+                </p>
+                <small class="text-muted"
+                  ><i class="fas fa-copy me-1"></i>Klik untuk menyalin</small
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4" data-aos="fade-left">
+            <div class="gift-box">
+              <h4 class="text-center mb-3">
+                <i class="fas fa-university me-2"></i>Bank Mandiri
+              </h4>
+              <div
+                class="gift-account"
+                onclick="copyAccount('0987654321', this)"
+              >
+                <p class="mb-2"><strong>Atas Nama:</strong> Ani Wijaya</p>
+                <p class="mb-0">
+                  <strong>No. Rekening:</strong>
+                  <span id="mandiri-account">0987654321</span>
+                </p>
+                <small class="text-muted"
+                  ><i class="fas fa-copy me-1"></i>Klik untuk menyalin</small
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP -->
+    <section class="home-section bg-light" id="rsvp">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 text-center" data-aos="fade-up">
+            <h2 class="section-title">Konfirmasi Kehadiran</h2>
+            <p class="lead">Mohon konfirmasi kehadiran Anda</p>
+          </div>
+        </div>
+
+        <div class="row justify-content-center mt-5">
+          <div class="col-md-6">
+            <div class="card border-0 shadow-lg" data-aos="zoom-in">
+              <div class="card-body p-5">
+                <form id="rsvpForm">
+                  <div class="mb-3">
+                    <label for="nama" class="form-label"
+                      ><i class="fas fa-user me-2"></i>Nama Lengkap</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="nama"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="jumlah" class="form-label"
+                      ><i class="fas fa-users me-2"></i>Jumlah Tamu</label
+                    >
+                    <select class="form-select" id="jumlah" required>
+                      <option value="">Pilih jumlah tamu</option>
+                      <option value="1">1 Orang</option>
+                      <option value="2">2 Orang</option>
+                      <option value="3">3 Orang</option>
+                      <option value="4">4 Orang</option>
+                      <option value="5">5+ Orang</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label"
+                      ><i class="fas fa-check-circle me-2"></i>Konfirmasi
+                      Kehadiran</label
+                    >
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="kehadiran"
+                        id="hadir"
+                        value="hadir"
+                        required
+                      />
+                      <label class="form-check-label" for="hadir">
+                        Ya, saya akan hadir
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="kehadiran"
+                        id="tidakHadir"
+                        value="tidak"
+                      />
+                      <label class="form-check-label" for="tidakHadir">
+                        Maaf, saya tidak bisa hadir
+                      </label>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="pesan" class="form-label"
+                      ><i class="fas fa-comment-dots me-2"></i>Ucapan &
+                      Doa</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="pesan"
+                      rows="4"
+                      placeholder="Berikan ucapan dan doa untuk kami..."
+                    ></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-pink w-100">
+                    <i class="fas fa-paper-plane me-2"></i>Kirim Konfirmasi
+                  </button>
+                </form>
+              </div>
+            </div>
+
+            <!-- Daftar Ucapan -->
+            <div class="card border-0 shadow-lg mt-4" data-aos="zoom-in">
+              <div class="card-body p-4">
+                <h5 class="mb-4">
+                  <i class="fas fa-comments me-2"></i>Ucapan dari Tamu
+                </h5>
+                <div
+                  id="ucapanList"
+                  style="max-height: 400px; overflow-y: auto"
+                >
+                  <!-- Ucapan akan muncul di sini -->
+                  <div class="alert alert-light">
+                    <strong>John Doe</strong>
+                    <small class="text-muted float-end">2 hari lalu</small>
+                    <p class="mb-0 mt-2">
+                      Selamat menempuh hidup baru! Semoga menjadi keluarga yang
+                      sakinah, mawaddah, warahmah. Barakallah!
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Penutup -->
+    <section class="home-section" id="penutup">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 text-center" data-aos="fade-up">
+            <h2 class="section-title">Terima Kasih</h2>
+            <p class="lead mb-4">
+              Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
+              Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan do'a restu
+              kepada kami.
+            </p>
+            <p class="fs-5 mb-4">
+              Atas kehadiran serta do'a restu dari Bapak/Ibu/Saudara/i, kami
+              ucapkan terima kasih.
+            </p>
+            <hr class="w-50 mx-auto my-4" />
+            <p class="fs-4 mb-2" style="font-family: 'Sacramento', cursive">
+              Wassalamu'alaikum Wr. Wb.
+            </p>
+            <p class="fs-5 mt-4"><strong>Kami yang berbahagia,</strong></p>
+            <h3
+              style="
+                font-family: 'Sacramento', cursive;
+                font-size: 3rem;
+                color: var(--pink);
+              "
+            >
+              Budi & Ani
+            </h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+      <div class="container">
+        <p class="mb-2">&copy; 2025 Wedding Invitation - Budi & Ani</p>
+        <p class="mb-0">
+          Made with <i class="fas fa-heart text-danger"></i> for our special day
+        </p>
+      </div>
+    </footer>
+
+    <!-- Music Toggle Button -->
+    <div class="music-toggle" id="musicToggle" onclick="toggleMusic()">
+      <i class="fas fa-music" id="musicIcon"></i>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop>
+      <source
+        src="https://cdnjs.cloudflare.com/ajax/libs/content/audio.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+
+    <!-- jQuery 3 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!-- Bootstrap 5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <!-- Lightbox 2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+    <!-- SweetAlert 2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.10.0/sweetalert2.all.min.js"></script>
+
+    <!-- Masonry -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+
+    <!-- Simply Countdown -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplejscountdown/1.0.0/simplyCountdown.min.js"></script>
+
+    <script>
+      // Initialize AOS
+      AOS.init({
+        once: true,
+        duration: 1000,
+      });
+
+      // Countdown Timer
+      simplyCountdown(".simply-countdown", {
+        year: 2025,
+        month: 2,
+        day: 15,
+        hours: 8,
+        minutes: 0,
+        seconds: 0,
+        words: {
+          days: "Hari",
+          hours: "Jam",
+          minutes: "Menit",
+          seconds: "Detik",
+        },
+        plural: true,
+        inline: true,
+        inlineClass: "simply-countdown-inline",
+        enableUtc: false,
+      });
+
+      // Music Control
+      let musicPlaying = false;
+      const music = document.getElementById("backgroundMusic");
+      const musicIcon = document.getElementById("musicIcon");
+
+      function toggleMusic() {
+        if (musicPlaying) {
+          music.pause();
+          musicIcon.classList.remove("fa-music");
+          musicIcon.classList.add("fa-music");
+          musicIcon.style.animation = "none";
+        } else {
+          music.play().catch((e) => {
+            console.log("Audio play failed:", e);
+          });
+          musicIcon.style.animation = "pulse 1s infinite";
+        }
+        musicPlaying = !musicPlaying;
+      }
+
+      // Add pulse animation
+      const style = document.createElement("style");
+      style.textContent = `
+            @keyframes pulse {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.1); }
+            }
+        `;
+      document.head.appendChild(style);
+
+      // Open Invitation
+      function openInvitation() {
+        document.getElementById("openingCover").classList.add("hide");
+        // Auto play music when invitation opened
+        setTimeout(() => {
+          music.play().catch((e) => console.log("Audio play failed:", e));
+          musicPlaying = true;
+          musicIcon.style.animation = "pulse 1s infinite";
+        }, 1000);
+      }
+
+      // Copy Account Number
+      function copyAccount(accountNumber, element) {
+        navigator.clipboard
+          .writeText(accountNumber)
+          .then(() => {
+            Swal.fire({
+              icon: "success",
+              title: "Berhasil!",
+              text: "Nomor rekening berhasil disalin",
+              timer: 1500,
+              showConfirmButton: false,
+            });
+
+            // Visual feedback
+            $(element).addClass("bg-success text-white");
+            setTimeout(() => {
+              $(element).removeClass("bg-success text-white");
+            }, 1000);
+          })
+          .catch((err) => {
+            Swal.fire({
+              icon: "error",
+              title: "Gagal!",
+              text: "Gagal menyalin nomor rekening",
+            });
+          });
+      }
+
+      // RSVP Form Submission
+      $("#rsvpForm").on("submit", function (e) {
+        e.preventDefault();
+
+        const nama = $("#nama").val();
+        const jumlah = $("#jumlah").val();
+        const kehadiran = $('input[name="kehadiran"]:checked').val();
+        const pesan = $("#pesan").val();
+
+        // Show loading
+        Swal.fire({
+          title: "Mengirim...",
+          text: "Mohon tunggu sebentar",
+          allowOutsideClick: false,
+          didOpen: () => {
+            Swal.showLoading();
+          },
+        });
+
+        // Simulate API call
+        setTimeout(() => {
+          Swal.fire({
+            icon: "success",
+            title: "Terima Kasih!",
+            html: `<p>Konfirmasi kehadiran Anda telah diterima.</p>
+                           <p><strong>${nama}</strong> - ${
+              kehadiran === "hadir" ? "Hadir" : "Tidak Hadir"
+            }</p>`,
+            confirmButtonColor: "#f14e95",
+          }).then(() => {
+            // Add to ucapan list if there's a message
+            if (pesan) {
+              const ucapanHTML = `
+                            <div class="alert alert-light">
+                                <strong>${nama}</strong>
+                                <small class="text-muted float-end">Baru saja</small>
+                                <p class="mb-0 mt-2">${pesan}</p>
+                            </div>
+                        `;
+              $("#ucapanList").prepend(ucapanHTML);
+            }
+
+            // Reset form
+            $("#rsvpForm")[0].reset();
+          });
+        }, 1500);
+      });
+
+      // Smooth Scroll
+      $('a[href^="#"]').on("click", function (e) {
+        e.preventDefault();
+        const target = $(this.getAttribute("href"));
+        if (target.length) {
+          $("html, body")
+            .stop()
+            .animate(
+              {
+                scrollTop: target.offset().top - 70,
+              },
+              1000
+            );
+        }
+      });
+
+      // Sticky Music Button
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+          $(".music-toggle").fadeIn();
+        } else {
+          $(".music-toggle").fadeOut();
+        }
+      });
+
+      // Disable right click on images (optional protection)
+      $("img").on("contextmenu", function (e) {
+        return false;
+      });
+
+      // Lightbox config
+      lightbox.option({
+        resizeDuration: 200,
+        wrapAround: true,
+        albumLabel: "Foto %1 dari %2",
+      });
+
+      // Initialize Masonry after images loaded
+      $(window).on("load", function () {
+        $(".row[data-masonry]").masonry({
+          itemSelector: ".col-md-4",
+          percentPosition: true,
+        });
+      });
+
+      // Preload images for better performance
+      $(document).ready(function () {
+        $(".gallery-img").each(function () {
+          const img = new Image();
+          img.src = $(this).attr("src");
+        });
+      });
+    </script>
+  </body>
+</html>
