@@ -35,6 +35,77 @@
       rel="stylesheet"
     />
 
+    <script>
+      // Define functions in head to ensure they're available immediately
+      var musicPlaying = false;
+
+      function openInvitation() {
+        var cover = document.getElementById("openingCover");
+        if (cover) {
+          cover.classList.add("hide");
+        }
+        setTimeout(function () {
+          var music = document.getElementById("backgroundMusic");
+          var musicIcon = document.getElementById("musicIcon");
+
+          if (music && musicIcon) {
+            music.play().catch(function (e) {
+              console.log("Audio play failed:", e);
+            });
+            musicPlaying = true;
+            musicIcon.style.animation = "pulse 1s infinite";
+          }
+        }, 1000);
+      }
+
+      function copyAccount(accountNumber, element) {
+        navigator.clipboard
+          .writeText(accountNumber)
+          .then(function () {
+            if (typeof Swal !== "undefined") {
+              Swal.fire({
+                icon: "success",
+                title: "Berhasil!",
+                text: "Nomor rekening berhasil disalin",
+                timer: 1500,
+                showConfirmButton: false,
+              });
+            }
+            element.classList.add("bg-success", "text-white");
+            setTimeout(function () {
+              element.classList.remove("bg-success", "text-white");
+            }, 1000);
+          })
+          .catch(function (err) {
+            if (typeof Swal !== "undefined") {
+              Swal.fire({
+                icon: "error",
+                title: "Gagal!",
+                text: "Gagal menyalin nomor rekening",
+              });
+            }
+          });
+      }
+
+      function toggleMusic() {
+        var music = document.getElementById("backgroundMusic");
+        var musicIcon = document.getElementById("musicIcon");
+
+        if (!music || !musicIcon) return;
+
+        if (musicPlaying) {
+          music.pause();
+          musicIcon.style.animation = "none";
+        } else {
+          music.play().catch(function (e) {
+            console.log("Audio play failed:", e);
+          });
+          musicIcon.style.animation = "pulse 1s infinite";
+        }
+        musicPlaying = !musicPlaying;
+      }
+    </script>
+
     <style>
       :root {
         --pink: #f14e95;
@@ -42,11 +113,20 @@
         --shadow: 0 2px 2px rgb(0 0 0 / 0.5);
       }
 
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        overflow-x: hidden;
+      }
+
       body {
         font-size: 1.2rem;
         font-family: "Work Sans", sans-serif;
         min-height: 4000px;
         background-color: #f8f9fa;
+        overflow-x: hidden;
       }
 
       .hero {
@@ -77,6 +157,7 @@
         font-size: 6rem;
         color: white;
         text-shadow: var(--shadow);
+        word-wrap: break-word;
       }
 
       .hero h4,
@@ -87,15 +168,20 @@
 
       .simply-countdown {
         margin-top: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
       }
 
       .simply-countdown > div {
         display: inline-block;
         padding: 20px;
-        margin: 10px;
+        margin: 5px;
         background-color: rgba(255, 255, 255, 0.9);
         border-radius: 10px;
         box-shadow: var(--shadow);
+        min-width: 80px;
       }
 
       .simply-countdown > div > span {
@@ -262,12 +348,86 @@
         pointer-events: none;
       }
 
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
       @media (max-width: 768px) {
         .hero h1 {
-          font-size: 4rem;
+          font-size: 3.5rem;
         }
         .section-title {
-          font-size: 3rem;
+          font-size: 2.5rem;
+        }
+        .hero h4 {
+          font-size: 1rem;
+          padding: 0 15px;
+        }
+        .hero p {
+          font-size: 0.9rem;
+          padding: 0 15px;
+        }
+        .simply-countdown > div {
+          padding: 15px;
+          margin: 3px;
+          min-width: 70px;
+        }
+        .simply-countdown > div > span {
+          font-size: 1.8rem;
+        }
+        .couple-img {
+          max-width: 250px;
+          height: 250px;
+        }
+        .home-section {
+          padding: 3rem 0;
+        }
+        .timeline-item {
+          padding-left: 50px;
+        }
+        .gallery-img {
+          height: 200px;
+        }
+        .music-toggle {
+          width: 50px;
+          height: 50px;
+          bottom: 20px;
+          right: 20px;
+        }
+        .music-toggle i {
+          font-size: 20px;
+        }
+        .container {
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+        iframe {
+          height: 300px !important;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        .section-title {
+          font-size: 2rem;
+        }
+        .opening-cover h1 {
+          font-size: 3rem !important;
+        }
+        .simply-countdown > div {
+          padding: 10px;
+          min-width: 60px;
+        }
+        .simply-countdown > div > span {
+          font-size: 1.5rem;
         }
       }
     </style>
@@ -277,7 +437,7 @@
     <div class="opening-cover" id="openingCover">
       <div class="text-center text-white">
         <h1 style="font-family: 'Sacramento', cursive; font-size: 5rem">
-          Ghani & Bila
+          Budi & Ani
         </h1>
         <p class="fs-4 mb-4">Kepada Bapak/Ibu/Saudara/i</p>
         <button class="btn btn-pink btn-lg" onclick="openInvitation()">
@@ -562,8 +722,8 @@
           </div>
         </div>
 
-        <div class="row mt-5" data-masonry='{"percentPosition": true }'>
-          <div class="col-md-4 col-sm-6" data-aos="zoom-in">
+        <div class="row mt-5">
+          <div class="col-md-4 col-sm-6 mb-3" data-aos="zoom-in">
             <a
               href="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=800"
               data-lightbox="gallery"
@@ -577,7 +737,7 @@
             </a>
           </div>
           <div
-            class="col-md-4 col-sm-6"
+            class="col-md-4 col-sm-6 mb-3"
             data-aos="zoom-in"
             data-aos-delay="100"
           >
@@ -594,37 +754,37 @@
             </a>
           </div>
           <div
-            class="col-md-4 col-sm-6"
+            class="col-md-4 col-sm-6 mb-3"
             data-aos="zoom-in"
             data-aos-delay="200"
           >
             <a
-              href="https://images.unsplash.com/photo-1522673607199-3a7ce6f05308?w=800"
+              href="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800"
               data-lightbox="gallery"
               data-title="Foto 3"
             >
               <img
-                src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=400"
+                src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400"
                 class="gallery-img"
                 alt="Gallery 3"
               />
             </a>
           </div>
-          <div class="col-md-4 col-sm-6" data-aos="zoom-in">
+          <div class="col-md-4 col-sm-6 mb-3" data-aos="zoom-in">
             <a
               href="https://images.unsplash.com/photo-1623529310215-7f99e63f5130?w=800"
               data-lightbox="gallery"
               data-title="Foto 4"
             >
               <img
-                src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?w=400"
+                src="https://images.unsplash.com/photo-1623529310215-7f99e63f5130?w=400"
                 class="gallery-img"
                 alt="Gallery 4"
               />
             </a>
           </div>
           <div
-            class="col-md-4 col-sm-6"
+            class="col-md-4 col-sm-6 mb-3"
             data-aos="zoom-in"
             data-aos-delay="100"
           >
@@ -641,7 +801,7 @@
             </a>
           </div>
           <div
-            class="col-md-4 col-sm-6"
+            class="col-md-4 col-sm-6 mb-3"
             data-aos="zoom-in"
             data-aos-delay="200"
           >
@@ -941,75 +1101,6 @@
         enableUtc: false,
       });
 
-      // Music Control
-      let musicPlaying = false;
-      const music = document.getElementById("backgroundMusic");
-      const musicIcon = document.getElementById("musicIcon");
-
-      function toggleMusic() {
-        if (musicPlaying) {
-          music.pause();
-          musicIcon.classList.remove("fa-music");
-          musicIcon.classList.add("fa-music");
-          musicIcon.style.animation = "none";
-        } else {
-          music.play().catch((e) => {
-            console.log("Audio play failed:", e);
-          });
-          musicIcon.style.animation = "pulse 1s infinite";
-        }
-        musicPlaying = !musicPlaying;
-      }
-
-      // Add pulse animation
-      const style = document.createElement("style");
-      style.textContent = `
-            @keyframes pulse {
-                0%, 100% { transform: scale(1); }
-                50% { transform: scale(1.1); }
-            }
-        `;
-      document.head.appendChild(style);
-
-      // Open Invitation
-      function openInvitation() {
-        document.getElementById("openingCover").classList.add("hide");
-        // Auto play music when invitation opened
-        setTimeout(() => {
-          music.play().catch((e) => console.log("Audio play failed:", e));
-          musicPlaying = true;
-          musicIcon.style.animation = "pulse 1s infinite";
-        }, 1000);
-      }
-
-      // Copy Account Number
-      function copyAccount(accountNumber, element) {
-        navigator.clipboard
-          .writeText(accountNumber)
-          .then(() => {
-            Swal.fire({
-              icon: "success",
-              title: "Berhasil!",
-              text: "Nomor rekening berhasil disalin",
-              timer: 1500,
-              showConfirmButton: false,
-            });
-
-            // Visual feedback
-            $(element).addClass("bg-success text-white");
-            setTimeout(() => {
-              $(element).removeClass("bg-success text-white");
-            }, 1000);
-          })
-          .catch((err) => {
-            Swal.fire({
-              icon: "error",
-              title: "Gagal!",
-              text: "Gagal menyalin nomor rekening",
-            });
-          });
-      }
-
       // RSVP Form Submission
       $("#rsvpForm").on("submit", function (e) {
         e.preventDefault();
@@ -1093,14 +1184,6 @@
         resizeDuration: 200,
         wrapAround: true,
         albumLabel: "Foto %1 dari %2",
-      });
-
-      // Initialize Masonry after images loaded
-      $(window).on("load", function () {
-        $(".row[data-masonry]").masonry({
-          itemSelector: ".col-md-4",
-          percentPosition: true,
-        });
       });
 
       // Preload images for better performance
