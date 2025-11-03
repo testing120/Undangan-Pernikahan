@@ -50,6 +50,10 @@
         box-sizing: border-box;
       }
 
+      html {
+        overflow-x: hidden;
+      }
+
       body {
         font-family: "Poppins", sans-serif;
         background-color: var(--cream);
@@ -149,6 +153,7 @@
       .hero-content {
         text-align: center;
         z-index: 2;
+        padding: 0 15px;
       }
 
       .hero-subtitle {
@@ -165,6 +170,7 @@
         color: var(--rose-gold);
         margin: 20px 0;
         letter-spacing: 3px;
+        word-wrap: break-word;
       }
 
       .hero-line {
@@ -373,6 +379,7 @@
         background: var(--light-emerald);
         transform: translateY(-3px);
         box-shadow: 0 10px 25px rgba(45, 106, 79, 0.3);
+        color: white;
       }
 
       /* Story Section */
@@ -714,17 +721,78 @@
           font-size: 3rem;
         }
 
+        .opening-date {
+          font-size: 1rem;
+          letter-spacing: 3px;
+        }
+
+        .btn-open {
+          padding: 12px 35px;
+          font-size: 0.9rem;
+        }
+
+        .hero {
+          padding: 0 15px;
+        }
+
         .hero h1 {
           font-size: 3rem;
+          letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+          font-size: 0.85rem;
+          letter-spacing: 4px;
         }
 
         .section-title {
           font-size: 2.5rem;
         }
 
+        .section-subtitle {
+          font-size: 0.95rem;
+          padding: 0 15px;
+        }
+
+        .couple-section {
+          padding: 60px 0;
+        }
+
         .couple-photo {
           width: 220px;
           height: 220px;
+        }
+
+        .couple-name {
+          font-size: 2rem;
+        }
+
+        .couple-info {
+          font-size: 0.9rem;
+        }
+
+        .separator {
+          font-size: 3.5rem;
+        }
+
+        .event-section {
+          padding: 60px 0;
+        }
+
+        .event-box {
+          padding: 35px 25px;
+        }
+
+        .event-name {
+          font-size: 1.6rem;
+        }
+
+        .event-info {
+          font-size: 0.9rem;
+        }
+
+        .story-section {
+          padding: 60px 0;
         }
 
         .timeline::before {
@@ -734,14 +802,66 @@
         .timeline-content {
           width: calc(100% - 80px);
           margin-left: 80px !important;
+          padding: 25px;
         }
 
         .timeline-dot {
           left: 30px;
+          width: 50px;
+          height: 50px;
+        }
+
+        .timeline-dot i {
+          font-size: 1.2rem;
+        }
+
+        .timeline-date {
+          font-size: 1rem;
+        }
+
+        .timeline-title {
+          font-size: 1.4rem;
+        }
+
+        .timeline-text {
+          font-size: 0.9rem;
+        }
+
+        .gallery-section {
+          padding: 60px 0;
+        }
+
+        .gallery-box {
+          height: 250px;
+        }
+
+        .gift-section {
+          padding: 60px 0;
+        }
+
+        .gift-box {
+          padding: 30px 20px;
+          margin-bottom: 20px;
+        }
+
+        .gift-bank {
+          font-size: 1.5rem;
+        }
+
+        .gift-account-number {
+          font-size: 1.2rem;
+        }
+
+        .rsvp-section {
+          padding: 60px 0;
+        }
+
+        .rsvp-card {
+          padding: 30px 20px;
         }
 
         .countdown-container {
-          gap: 10px;
+          gap: 15px;
         }
 
         .countdown-box {
@@ -751,6 +871,79 @@
 
         .countdown-num {
           font-size: 2rem;
+        }
+
+        .countdown-text {
+          font-size: 0.75rem;
+        }
+
+        .music-btn {
+          width: 55px;
+          height: 55px;
+          bottom: 20px;
+          right: 20px;
+        }
+
+        .music-btn i {
+          font-size: 22px;
+        }
+
+        iframe {
+          height: 300px !important;
+        }
+
+        .footer-name {
+          font-size: 2.5rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .opening-content h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+          letter-spacing: 1px;
+        }
+
+        .hero-subtitle {
+          font-size: 0.75rem;
+          letter-spacing: 3px;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .couple-photo {
+          width: 180px;
+          height: 180px;
+        }
+
+        .couple-name {
+          font-size: 1.6rem;
+        }
+
+        .countdown-box {
+          padding: 15px 10px;
+          min-width: 70px;
+        }
+
+        .countdown-num {
+          font-size: 1.8rem;
+        }
+
+        .countdown-text {
+          font-size: 0.7rem;
+        }
+
+        .footer-name {
+          font-size: 2rem;
+        }
+
+        .timeline-item {
+          margin-bottom: 50px;
         }
       }
 
@@ -869,14 +1062,14 @@
             </h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
               Dengan memohon Rahmat dan Ridho Allah SWT, kami bermaksud
-              mengundang<br />
+              mengundang<br class="d-none d-md-inline" />
               Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami
             </p>
           </div>
         </div>
 
         <div class="row align-items-center mt-5">
-          <div class="col-md-5" data-aos="fade-right">
+          <div class="col-md-5 mb-4" data-aos="fade-right">
             <div class="couple-box">
               <img
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400"
@@ -896,14 +1089,14 @@
           </div>
 
           <div
-            class="col-md-2 text-center"
+            class="col-md-2 text-center mb-4"
             data-aos="zoom-in"
             data-aos-delay="200"
           >
             <div class="separator">&</div>
           </div>
 
-          <div class="col-md-5" data-aos="fade-left">
+          <div class="col-md-5 mb-4" data-aos="fade-left">
             <div class="couple-box">
               <img
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400"
@@ -1278,7 +1471,7 @@
             <h2 class="section-title" data-aos="fade-up">Amplop Digital</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
               Tanpa mengurangi rasa hormat, bagi yang ingin memberikan tanda
-              kasih,<br />
+              kasih,<br class="d-none d-md-inline" />
               dapat melalui nomor rekening berikut:
             </p>
           </div>
@@ -1528,7 +1721,9 @@
                 font-weight: 300;
               "
             >
-              Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila<br />
+              Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila<br
+                class="d-none d-md-inline"
+              />
               Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu
               kepada kami.
             </p>

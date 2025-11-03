@@ -49,6 +49,10 @@
         box-sizing: border-box;
       }
 
+      html {
+        overflow-x: hidden;
+      }
+
       body {
         font-family: "Montserrat", sans-serif;
         background-color: var(--cream);
@@ -159,6 +163,7 @@
       .hero-content {
         text-align: center;
         z-index: 2;
+        padding: 0 15px;
       }
 
       .hero h1 {
@@ -167,6 +172,7 @@
         letter-spacing: 8px;
         color: var(--gold);
         margin: 30px 0;
+        word-wrap: break-word;
       }
 
       .hero-subtitle {
@@ -352,6 +358,7 @@
         background: var(--dark-gold);
         transform: translateY(-2px);
         box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+        color: var(--navy);
       }
 
       /* Story Section */
@@ -589,13 +596,40 @@
           font-size: 3rem;
         }
 
+        .opening-content p {
+          font-size: 0.9rem;
+        }
+
+        .btn-open {
+          padding: 12px 30px;
+          font-size: 0.8rem;
+        }
+
+        .hero {
+          padding: 0 15px;
+        }
+
         .hero h1 {
           font-size: 3.5rem;
           letter-spacing: 4px;
         }
 
+        .hero-subtitle {
+          font-size: 0.9rem;
+          letter-spacing: 2px;
+        }
+
         .section-title {
           font-size: 2.5rem;
+        }
+
+        .section-subtitle {
+          font-size: 1rem;
+          padding: 0 15px;
+        }
+
+        .couple-section {
+          padding: 50px 0;
         }
 
         .couple-image {
@@ -603,15 +637,78 @@
           height: 200px;
         }
 
+        .couple-name {
+          font-size: 2rem;
+        }
+
+        .couple-parent {
+          font-size: 0.9rem;
+        }
+
+        .divider-ornament {
+          font-size: 3rem;
+        }
+
+        .event-section {
+          padding: 50px 0;
+        }
+
+        .event-card {
+          padding: 30px 20px;
+        }
+
+        .event-title {
+          font-size: 1.5rem;
+        }
+
+        .event-detail {
+          font-size: 0.9rem;
+        }
+
+        .story-section {
+          padding: 50px 0;
+        }
+
         .story-item {
           flex-direction: column !important;
           text-align: center;
+          margin-bottom: 40px;
+        }
+
+        .story-date {
+          flex: none;
         }
 
         .story-content {
           border-left: none !important;
           border-right: none !important;
           border-top: 3px solid var(--gold);
+          padding: 20px;
+        }
+
+        .story-title {
+          font-size: 1.5rem;
+        }
+
+        .gallery-section {
+          padding: 50px 0;
+        }
+
+        .gallery-image {
+          height: 250px;
+        }
+
+        .gift-section {
+          padding: 50px 0;
+        }
+
+        .gift-card {
+          padding: 30px 20px;
+          margin-bottom: 20px;
+        }
+
+        .rsvp-section {
+          padding: 50px 0;
         }
 
         .countdown-wrapper {
@@ -620,10 +717,71 @@
 
         .countdown-item {
           padding: 15px;
-          min-width: 80px;
+          min-width: 70px;
         }
 
         .countdown-number {
+          font-size: 2rem;
+        }
+
+        .countdown-label {
+          font-size: 0.8rem;
+        }
+
+        .music-toggle {
+          width: 50px;
+          height: 50px;
+          bottom: 20px;
+          right: 20px;
+        }
+
+        .music-toggle i {
+          font-size: 20px;
+        }
+
+        iframe {
+          height: 300px !important;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .opening-content h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+          letter-spacing: 2px;
+        }
+
+        .hero-subtitle {
+          font-size: 0.8rem;
+          letter-spacing: 1px;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .couple-image {
+          width: 180px;
+          height: 180px;
+        }
+
+        .countdown-item {
+          padding: 10px;
+          min-width: 60px;
+        }
+
+        .countdown-number {
+          font-size: 1.5rem;
+        }
+
+        .countdown-label {
+          font-size: 0.7rem;
+        }
+
+        .footer-names {
           font-size: 2rem;
         }
       }
@@ -640,6 +798,15 @@
 
       .floating {
         animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
       }
     </style>
   </head>
@@ -710,14 +877,14 @@
             </h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
               Dengan memohon Rahmat dan Ridho Allah SWT, kami bermaksud
-              mengundang<br />
+              mengundang<br class="d-none d-md-inline" />
               Bapak/Ibu/Saudara/i untuk hadir di acara pernikahan kami
             </p>
           </div>
         </div>
 
         <div class="row align-items-center mt-5">
-          <div class="col-md-5" data-aos="fade-right">
+          <div class="col-md-5 mb-4" data-aos="fade-right">
             <div class="couple-card">
               <div class="couple-image-wrapper">
                 <img
@@ -747,14 +914,14 @@
           </div>
 
           <div
-            class="col-md-2 text-center"
+            class="col-md-2 text-center mb-4"
             data-aos="zoom-in"
             data-aos-delay="200"
           >
             <div class="divider-ornament">&</div>
           </div>
 
-          <div class="col-md-5" data-aos="fade-left">
+          <div class="col-md-5 mb-4" data-aos="fade-left">
             <div class="couple-card">
               <div class="couple-image-wrapper">
                 <img
@@ -1165,7 +1332,7 @@
             <h2 class="section-title" data-aos="fade-up">Wedding Gift</h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
               Tanpa mengurangi rasa hormat, bagi yang ingin memberikan tanda
-              kasih,<br />
+              kasih,<br class="d-none d-md-inline" />
               dapat melalui nomor rekening berikut:
             </p>
           </div>
@@ -1432,7 +1599,9 @@
                 margin-bottom: 30px;
               "
             >
-              Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila<br />
+              Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila<br
+                class="d-none d-md-inline"
+              />
               Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu
               kepada kami.
             </p>
@@ -1567,16 +1736,6 @@
         }
         musicPlaying = !musicPlaying;
       }
-
-      // Add spin animation
-      const style = document.createElement("style");
-      style.textContent = `
-            @keyframes spin {
-                from { transform: rotate(0deg); }
-                to { transform: rotate(360deg); }
-            }
-        `;
-      document.head.appendChild(style);
 
       // Open Invitation
       function openInvitation() {
